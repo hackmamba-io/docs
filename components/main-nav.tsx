@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import { Icons } from './icons';
 import SecondaryNav from './secondary-nav';
+import { SecondaryNavItem } from '@/types/nav.types';
 
-export default function MainNav() {
+interface MainNavProps {
+	items: SecondaryNavItem[];
+	isNavVisible: boolean;
+}
+
+export default function MainNav({ isNavVisible, items }: MainNavProps) {
 	return (
 		<div className='sticky top-0 w-full backdrop-blur transition-colors duration-500 supports-backdrop-blur:bg-background-light/60 dark:bg-transparent'>
 			<header className='flex flex-col items-center justify-between border-b'>
@@ -35,12 +41,7 @@ export default function MainNav() {
 						</div>
 					</div>
 				</nav>
-				<SecondaryNav
-					items={[
-						{ name: 'home', path: '/' },
-						{ name: 'API guide', path: '/guide' },
-					]}
-				/>
+				{isNavVisible && <SecondaryNav items={items} />}
 			</header>
 		</div>
 	);
