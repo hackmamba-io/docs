@@ -1,17 +1,12 @@
-import { SecondaryNavItem, SidebarNavItem } from '@/types/nav.types';
+import { NavProps, SecondaryNavItem, SidebarNavItem } from '@/types/nav.types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-interface SideNavProps {
-	secodaryItems: SecondaryNavItem[];
-	items: SidebarNavItem[];
-}
-
-export default function SideNav({ items, secodaryItems }: SideNavProps) {
+export default function SideNav({ items, secodaryItems }: NavProps) {
 	const pathname = usePathname();
 
 	return (
-		<nav className='pl-10 pt-10 border-r h-screen w-72 styled-scrollbar overflow-y-scroll'>
+		<nav className='hidden lg:block pl-10 pt-10 border-r h-screen w-72 styled-scrollbar overflow-y-scroll'>
 			{items.map((item, i) => {
 				const matchingSecondaryItem = secodaryItems.find(
 					(secItem) =>

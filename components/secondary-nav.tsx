@@ -10,7 +10,7 @@ export default function SecondaryNav({ items }: SecondaryNavProps) {
 	const pathname = usePathname();
 
 	return (
-		<nav className='flex gap-6 mt-10 w-full px-10 min-h-9'>
+		<nav className='hidden lg:flex gap-6 mt-10 w-full px-10 min-h-9'>
 			{items.map(
 				(item, i) =>
 					item.href && (

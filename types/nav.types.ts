@@ -16,3 +16,13 @@ export interface NavItemWithChildren extends NavItem {
 export interface SecondaryNavItem extends NavItem { }
 
 export interface SidebarNavItem extends NavItemWithChildren { }
+
+
+export interface NavProps {
+    secodaryItems: SecondaryNavItem[];
+    items: SidebarNavItem[];
+}
+
+export interface IModal {
+    setShowModal: (state: boolean) => void;
+}
