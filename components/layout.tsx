@@ -11,7 +11,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
-		<div className={notoSans.className}>
+		<div
+			className={`${notoSans.className} text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900`}
+		>
 			<MainNav
 				isNavVisible={true}
 				items={docsConfig.secondaryNav}

@@ -30,10 +30,10 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 											<li key={idx}>
 												<Link
 													href={navItem.href}
-													className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-black mb-[10px] ${
+													className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-black dark:hover:text-slate-600 mb-[10px] ${
 														pathname ===
 														navItem.href
-															? 'text-[#4F00A3] bg-[#F4EDFB]'
+															? 'text-[#4F00A3] bg-[#F4EDFB] dark:bg-[#d5baf0]'
 															: 'text-[#5A5A5C]'
 													}`}
 												>
