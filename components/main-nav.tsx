@@ -1,41 +1,100 @@
 import Link from 'next/link';
 import { Icons } from './icons';
 import SecondaryNav from './secondary-nav';
-import { SecondaryNavItem } from '@/types/nav.types';
+import { IModal, SecondaryNavItem } from '@/types/nav.types';
+import { logoConfig } from '@/config/site.config';
+import { useEffect, useState } from 'react';
 
-interface MainNavProps {
+interface MainNavProps extends IModal {
 	items: SecondaryNavItem[];
 	isNavVisible: boolean;
 }
 
-export default function MainNav({ isNavVisible, items }: MainNavProps) {
+export default function MainNav({
+	isNavVisible,
+	items,
+	setShowModal,
+}: MainNavProps) {
+	const isLocalStorageAvailable =
+		typeof window !== 'undefined' && window.localStorage;
+
+	// Check local storage for saved theme or default to 'light'
+	const savedTheme = isLocalStorageAvailable
+		? localStorage.getItem('theme') || 'light'
+		: 'light';
+	const [theme, setTheme] = useState<string>(savedTheme);
+
+	// Update local storage and document element when theme changes
+	const updateTheme = (newTheme: string) => {
+		localStorage.setItem('theme', newTheme);
+		document.documentElement.classList.remove(theme);
+		document.documentElement.classList.add(newTheme);
+		setTheme(newTheme);
+	};
+
+	const handleToggleLightTheme = () => {
+		updateTheme('light');
+	};
+
+	const handleToggleDarkTheme = () => {
+		updateTheme('dark');
+	};
+
+	// Set the initial theme on component mount
+	useEffect(() => {
+		document.documentElement.classList.add(theme);
+		const buttons = document.querySelectorAll('.theme-button');
+		buttons.forEach((button) => {
+			const buttonTheme = button.getAttribute('data-theme');
+			if (buttonTheme === theme) {
+				button.classList.add('bg-gray-300');
+			} else {
+				button.classList.remove('bg-gray-300');
+			}
+		});
+	}, [theme]);
+
 	return (
 		<div className='sticky top-0 w-full backdrop-blur transition-colors duration-500 supports-backdrop-blur:bg-background-light/60 dark:bg-transparent'>
 			<header className='flex flex-col items-center justify-between border-b'>
-				<nav className='px-10 py-6 w-full flex justify-between'>
+				<nav className='px-4 py-4 lg:px-10 lg:py-6 w-full flex justify-between'>
 					<div className='w-full'>
-						<Link
-							href='/'
-							className='mr-6 flex items-center space-x-2'
-						>
-							<Icons.logo />
+						<Link href='/' className=''>
+							<logoConfig.logo />
 						</Link>
 					</div>
-					<button className='hidden w-full lg:flex items-center justify-between text-sm leading-6 rounded-md py-1.5 pl-2 pr-3 shadow-sm text-gray-400 dark:text-white/50 bg-white ring-1 ring-gray-400/20 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary'>
+					<button className='hidden bg-white dark:bg-slate-900 w-full lg:flex items-center justify-between text-sm leading-6 rounded-md py-1.5 pl-2 pr-3 shadow-sm text-gray-400 dark:text-white/50 ring-1 ring-gray-400/20 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary'>
 						<div className='flex items-center'>
 							<Icons.search />
 							<span className='ml-4'>Search the docs</span>
 						</div>
-						<div className='flex w-[18px] h-[18px] border rounded-sm items-center justify-center bg-[#F7FAFC]'>
+						<div className='flex w-[18px] h-[18px] border rounded-sm items-center justify-center bg-[#F7FAFC] dark:bg-slate-800'>
 							/
 						</div>
 					</button>
-					<div className='w-full flex justify-end'>
+					<button className='lg:hidden w-8 h-8 flex items-center justify-center'>
+						<Icons.searchBig />
+					</button>
+					<button
+						className='lg:hidden w-8 h-8 flex items-center justify-center'
+						onClick={() => setShowModal(true)}
+					>
+						<Icons.menu />
+					</button>
+					<div className='hidden lg:flex w-full justify-end'>
 						<div className='h-9 w-20 px-3 border rounded-full flex justify-between items-center'>
-							<button className='h-5 w-7 flex justify-center items-center rounded-2xl'>
+							<button
+								className={`h-5 w-7 flex justify-center items-center rounded-2xl theme-button`}
+								data-theme='dark'
+								onClick={handleToggleDarkTheme}
+							>
 								<Icons.dark />
 							</button>
-							<button className='h-5 w-7 bg-gray-300 flex justify-center items-center rounded-2xl'>
+							<button
+								className={`h-5 w-7 flex justify-center items-center rounded-2xl theme-button`}
+								data-theme='light'
+								onClick={handleToggleLightTheme}
+							>
 								<Icons.light />
 							</button>
 						</div>
