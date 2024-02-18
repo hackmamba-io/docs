@@ -7,6 +7,19 @@
   padding: 0 1rem;
 }
 
+.editor h1 {
+  @apply text-4xl;
+}
+.editor h2 {
+  @apply text-3xl;
+}
+.editor h3 {
+  @apply text-2xl;
+}
+.editor h4 {
+  @apply text-xl;
+}
+
 .editor h1,
 .editor h2,
 .editor h3,
@@ -14,6 +27,7 @@
 .editor h5,
 .editor h6 {
   line-height: 1.1;
+  @apply font-medium;
 }
 
 .editor code {
@@ -22,9 +36,9 @@
 }
 
 .editor pre {
-  background: #0D0D0D;
-  color: #FFF;
-  font-family: 'JetBrainsMono', monospace;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: "JetBrainsMono", monospace;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
 }

@@ -1,10 +1,10 @@
-import Editor from '@/components/MarkdownEditor/Editor'
-import React from 'react'
+import Editor from "@/components/Markdown/Editor";
+import React from "react";
 
 export default function index() {
   return (
-    <div className='dev w-full'>
+    <div className=" w-full">
       <Editor />
     </div>
-  )
+  );
 }
