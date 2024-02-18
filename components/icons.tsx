@@ -9,7 +9,7 @@ export const Icons = {
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
 		>
-			<g clip-path='url(#clip0_36_52)'>
+			<g clipPath='url(#clip0_36_52)'>
 				<mask
 					id='mask0_36_52'
 					// style='mask-type:luminance'

@@ -80,3 +80,7 @@
   scrollbar-color: #eaeaea transparent;
   scrollbar-gutter: stable;
 }
+
+.dev, [dev], [dev] *, .dev * {
+  outline: 1px solid rgba(255, 0, 0, .3);
+}
