@@ -25,9 +25,36 @@ Lists
 
 `Inline code`
 
-{% callout type="check" %}
-Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works. hdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdhdh
+{% callout type="check" title="Hello from" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
 {% /callout %}
+
+{% code %}
+
+```keel
+model Task {
+    fields {
+        description Text
+    }
+
+    actions {
+        create createTask() with (description)
+        get getTask(id)
+        update updateTask(id) with (description)
+        delete deleteTask(id)
+        list listTask() {
+            @orderBy(createdAt: desc)
+        }
+    }
+
+    @permission(
+        actions: [create, get, update, delete, list],
+        expression: true
+    )
+}
+```
+
+{% /code %}
 
 ```
 Code fences

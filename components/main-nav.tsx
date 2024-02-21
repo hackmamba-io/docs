@@ -56,14 +56,14 @@ export default function MainNav({
 
 	return (
 		<div className='sticky top-0 w-full backdrop-blur transition-colors duration-500 supports-backdrop-blur:bg-background-light/60 dark:bg-transparent'>
-			<header className='flex flex-col items-center justify-between border-b'>
+			<header className='flex flex-col items-center justify-between border-b dark:border-b-slate-700 '>
 				<nav className='px-4 py-4 lg:px-10 lg:py-6 w-full flex justify-between'>
 					<div className='w-full'>
 						<Link href='/' className=''>
 							<logoConfig.logo />
 						</Link>
 					</div>
-					<button className='hidden bg-white dark:bg-slate-900 w-full lg:flex items-center justify-between text-sm leading-6 rounded-md py-1.5 pl-2 pr-3 shadow-sm text-gray-400 dark:text-white/50 ring-1 ring-gray-400/20 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary'>
+					<button className='hidden bg-white dark:bg-slate-900 w-full lg:flex items-center justify-between text-sm leading-6 rounded-md py-1.5 pl-2 pr-3 shadow-sm text-gray-400 dark:text-white/50 border dark:border-slate-700 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary'>
 						<div className='flex items-center'>
 							<Icons.search />
 							<span className='ml-4'>Search the docs</span>

@@ -6,7 +6,7 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 	const pathname = usePathname();
 
 	return (
-		<nav className='hidden lg:block pl-10 pt-10 border-r h-screen w-72 styled-scrollbar overflow-y-scroll'>
+		<nav className='hidden lg:block pl-10 pt-10 border-r dark:border-r-slate-700 h-screen w-72 styled-scrollbar overflow-y-scroll'>
 			{items.map((item, i) => {
 				const matchingSecondaryItem = secodaryItems.find(
 					(secItem) =>
@@ -30,11 +30,11 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 											<li key={idx}>
 												<Link
 													href={navItem.href}
-													className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-black dark:hover:text-slate-600 mb-[10px] ${
+													className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-black hover:bg-slate-400/100 dark:hover:bg-slate-400/100 mb-[10px] ${
 														pathname ===
 														navItem.href
-															? 'text-[#4F00A3] bg-[#F4EDFB] dark:bg-[#d5baf0]'
-															: 'text-[#5A5A5C]'
+															? 'text-[#4F00A3] bg-[#F4EDFB] dark:bg-[#F4EDFB]'
+															: 'text-slate-400'
 													}`}
 												>
 													{navItem.title}

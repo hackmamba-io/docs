@@ -30,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					items={docsConfig.sidebarNav}
 					secodaryItems={docsConfig.secondaryNav}
 				/>
-				<article className='px-10 pt-10'>{children}</article>
+				<article className='px-10 pt-10 w-full'>{children}</article>
 			</div>
 		</div>
 	);
