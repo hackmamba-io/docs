@@ -51,9 +51,9 @@ export function CodeBlock({
 					className='absolute right-5 top-4 w-5 h-5 rounded hover:bg-slate-500/35 flex justify-center items-center'
 				>
 					{copied ? (
-						<Check className='w-4' />
+						<Check className='w-4 text-slate-400' />
 					) : (
-						<Clipboard className='w-4' />
+						<Clipboard className='w-4 text-slate-400' />
 					)}
 				</button>
 				<pre ref={ref} className={`language-${language} overflow-auto`}>

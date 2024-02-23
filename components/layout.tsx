@@ -4,6 +4,7 @@ import MainNav from './main-nav';
 import SideNav from './side-nav';
 import { docsConfig } from '@/config/docs.config';
 import MobileNav from './mobile-nav';
+import TableOfContent from './table-of-content';
 
 const notoSans = Noto_Sans({ subsets: ['latin'] });
 
@@ -31,6 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					secodaryItems={docsConfig.secondaryNav}
 				/>
 				<article className='px-10 pt-10 w-full'>{children}</article>
+				<TableOfContent />
 			</div>
 		</div>
 	);
