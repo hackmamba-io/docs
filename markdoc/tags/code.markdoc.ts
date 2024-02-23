@@ -1,4 +1,4 @@
-import { Code } from "@/components/markdowns/Code";
+import { Code } from "@/components/markdowns/CodeBlock";
 
 export const code = {
     render: Code,

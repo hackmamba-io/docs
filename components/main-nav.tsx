@@ -55,7 +55,7 @@ export default function MainNav({
 	}, [theme]);
 
 	return (
-		<div className='sticky top-0 w-full backdrop-blur transition-colors duration-500 supports-backdrop-blur:bg-background-light/60 dark:bg-transparent'>
+		<div className='sticky top-0 w-full backdrop-blur-2xl transition-colors duration-500 supports-backdrop-blur:bg-background-light/60 dark:bg-transparent z-10'>
 			<header className='flex flex-col items-center justify-between border-b dark:border-b-slate-700 '>
 				<nav className='px-4 py-4 lg:px-10 lg:py-6 w-full flex justify-between'>
 					<div className='w-full'>

@@ -80,3 +80,13 @@
   scrollbar-color: #eaeaea transparent;
   scrollbar-gutter: stable;
 }
+
+/* code block */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #796751;
+  background: none !important;
+}
