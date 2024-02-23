@@ -1,7 +1,7 @@
-import { Code } from "@/components/markdowns/CodeBlock";
+import { CodeBlock } from "@/components/markdowns/CodeBlock";
 
 export const code = {
-    render: Code,
+    render: CodeBlock,
     children: ['paragraph', 'tag', 'list'],
     attributes: {
         title: {

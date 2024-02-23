@@ -35,7 +35,7 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 															pathname ===
 															navItem.href
 																? 'text-[#4F00A3] bg-[#F4EDFB] dark:bg-[#F4EDFB]'
-																: 'text-slate-400'
+																: 'text-slate-600'
 														}`}
 													>
 														{navItem.title}

@@ -11,7 +11,7 @@ export default function TableOfContent() {
 						<header className=' text-xs font-normal mb-[10px] text-[#4F00A3]'>
 							On this page
 						</header>
-						<ul>
+						<ul className='text-slate-600'>
 							<li className='text-sm mb-4'>
 								<Link href={'#'}>Developer journey</Link>
 							</li>
