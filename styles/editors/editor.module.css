@@ -2,6 +2,11 @@
   margin-top: 0.75em;
 }
 
+/* */
+.editor {
+  padding: 10px;
+}
+
 .editor ul,
 .editor ol {
   padding: 0 1rem;

@@ -1,7 +1,7 @@
 import { Editor } from "@tiptap/react";
 import React from "react";
-import { ImageButton } from "../Buttons";
-import { getImage } from "../Utils";
+import { ImageButton } from "../buttons";
+import { getImage } from "../utils";
 
 type Props = {
   editor: Editor | null;

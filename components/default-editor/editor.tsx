@@ -1,11 +1,10 @@
-"use client";
 import hljs from "highlight.js";
 import React, { useCallback, useEffect } from "react";
-import { useCodeJar } from "./Utils/codejar/hook";
-import { setTheme, highlightInline } from "./Utils/hljs-config";
-import themes from "./Utils/themes";
-import { registerSupportedCodeLanguages } from "./Utils/languages";
-import { ImageButton } from "./Lib/Button/Img";
+import { useCodeJar } from "./utils/codejar/hook";
+import { setTheme, highlightInline } from "./utils/hljs-config";
+import themes from "./utils/themes";
+import { registerSupportedCodeLanguages } from "./utils/languages";
+import { ImageButton } from "./lib/button/img";
 import { getFileUrl } from "./utils";
 
 interface Props {
@@ -58,7 +57,7 @@ export default function Editor({ onChange }: Props) {
           setCode((code) => `${code}\n![${file?.name}](${imgUrl})`);
         }}
       />
-      <div ref={editorRef} className="bg-slate-200 hljs w-full h-[200px]">
+      <div ref={editorRef} className="bg-slate-200 p-3 hljs w-full h-[200px]">
         &nbsp;
       </div>
     </div>
