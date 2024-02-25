@@ -1,0 +1,70 @@
+.editor > * + * {
+  margin-top: 0.75em;
+}
+
+/* */
+.editor {
+  padding: 10px;
+}
+
+.editor ul,
+.editor ol {
+  padding: 0 1rem;
+}
+
+.editor h1 {
+  @apply text-4xl;
+}
+.editor h2 {
+  @apply text-3xl;
+}
+.editor h3 {
+  @apply text-2xl;
+}
+.editor h4 {
+  @apply text-xl;
+}
+
+.editor h1,
+.editor h2,
+.editor h3,
+.editor h4,
+.editor h5,
+.editor h6 {
+  line-height: 1.1;
+  @apply font-medium;
+}
+
+.editor code {
+  background-color: rgba(97, 97, 97, 0.1);
+  color: #616161;
+}
+
+.editor pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: "JetBrainsMono", monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.editor pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+.editor hr {
+  margin: 1rem 0;
+}
+
+.editor blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
