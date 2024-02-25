@@ -73,6 +73,36 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* heading custom style */
+  h1 {
+    @apply text-4xl font-bold mt-2 mb-6 scroll-m-20;
+  }
+
+  h2 {
+    @apply mb-6 scroll-m-20 pb-2 text-2xl font-semibold tracking-tight first:mt-0;
+  }
+
+  h3 {
+    @apply mb-4 scroll-m-20 pb-2 text-xl font-semibold tracking-tight;
+  }
+
+  h4,
+  h5 {
+    @apply mb-4 scroll-m-20 pb-2 text-lg font-semibold tracking-tight;
+  }
+
+  h6 {
+    @apply mb-4 scroll-m-20 pb-2 text-base font-semibold tracking-tight;
+  }
+
+  article a {
+    @apply font-medium underline underline-offset-4;
+  }
+
+  article p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
 }
 
 .styled-scrollbar {
@@ -91,4 +121,13 @@
 .ProseMirror.ProseMirror-focused {
   border: none !important;
   outline: none !important;
+}
+/* code block */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #796751;
+  background: none !important;
 }
