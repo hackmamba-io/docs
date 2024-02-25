@@ -1,43 +1,66 @@
 "use client";
+import hljs from "highlight.js";
+import React, { useCallback, useEffect } from "react";
+import { useCodeJar } from "./Utils/codejar/hook";
+import { setTheme, highlightInline } from "./Utils/hljs-config";
+import themes from "./Utils/themes";
+import { registerSupportedCodeLanguages } from "./Utils/languages";
+import { ImageButton } from "./Lib/Button/Img";
+import { getFileUrl } from "./utils";
 
-import styles from "./styles/editor.module.css";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Highlight from "@tiptap/extension-highlight";
-import Typography from "@tiptap/extension-typography";
-import Image from "@tiptap/extension-image";
-import CharacterCount from "@tiptap/extension-character-count";
-import { Emoji } from "./Extensions/Emoji";
-import MainMenu from "./Menus/MainMenu";
-import FloatMenu from "./Menus/FloatMenu";
-import PopMenu from "./Menus/PopMenu";
-import WordCount from "./Utils/WordCount";
+interface Props {
+  onChange: (value: string) => void;
+}
 
-export default () => {
-  const limit = 2000000;
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      Highlight,
-      Typography,
-      Image,
-      Emoji,
-      CharacterCount.configure({
-        limit,
-      }),
-    ],
-    content: "Hello World! 🌎️",
+registerSupportedCodeLanguages(hljs);
+
+export default function Editor({ onChange }: Props) {
+  const [code, setCode] = React.useState("");
+
+  const updateTheme = useCallback((s: string) => setTheme(s), []);
+
+  const editorRef = useCodeJar({
+    options: { tab: "\t" },
+    onUpdate: setCode,
+    lineNumbers: false,
+    style: {},
+    code,
+    highlight(e) {
+      const c = e.textContent || "";
+      e.innerHTML = highlightInline(hljs, c);
+    },
   });
 
+  useEffect(() => {
+    updateTheme("nord");
+  }, []);
+
+  useEffect(() => {
+    onChange && onChange(code);
+  }, [code]);
+
   return (
-    <div className="w-full relative aspect-square ">
-      <MainMenu editor={editor} />
-      <FloatMenu editor={editor} />
-      <PopMenu editor={editor} />
-      <div className="flex h-full flex-col justify-between">
-        <EditorContent className={styles.editor} editor={editor} />
-        <WordCount editor={editor} limit={limit} />
+    <div>
+      <select onChange={(e) => updateTheme(e.target.value)}>
+        <option value="" disabled={true}>
+          -- Select --
+        </option>
+        {themes.map((theme, idx) => (
+          <option key={idx} value={theme.value}>
+            {theme.label} Theme
+          </option>
+        ))}
+      </select>
+      <ImageButton
+        onChange={(e) => {
+          const file = (e.target.files || [])[0];
+          const imgUrl = getFileUrl(file);
+          setCode((code) => `${code}\n![${file?.name}](${imgUrl})`);
+        }}
+      />
+      <div ref={editorRef} className="bg-slate-200 hljs w-full h-[200px]">
+        &nbsp;
       </div>
     </div>
   );
-};
+}
