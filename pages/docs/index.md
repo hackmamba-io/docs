@@ -5,6 +5,28 @@ description: Integrate Markdoc into your Next.js app
 
 # {% $markdoc.frontmatter.title %}
 
+{% card size="sm" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
+{% /card %}
+{% card size="md" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
+{% /card %}
+{% card size="full" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
+{% /card %}
+
+{% tabs %}
+
+{% tab label="React" %}
+React content goes here jnjn
+{% /tab %}
+
+{% tab label="HTML" %}
+HTML content goes herenji
+{% /tab %}
+
+{% /tabs %}
+
 # Headers
 
 # Full Next.js example
