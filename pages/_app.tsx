@@ -11,28 +11,21 @@ const options: Partial<PostHogConfig> = {
 
 PostHog.init(process.env.PUBLIC_POSTHOG_KEY || '', options);
 
-
 export default function App({ Component, pageProps }: AppProps) {
-	return (
-		<Layout>
-			<Head>
-				<title>{siteMetaConfig.name}</title>
-				<meta
-					name={siteMetaConfig.name}
-					content={siteMetaConfig.name}
-				/>
-				<meta
-					name='keywords'
-					content={siteMetaConfig.keywords.join(',')}
-				></meta>
-				<meta
-					name='description'
-					content={siteMetaConfig.description}
-				></meta>
+  return (
+    <Layout>
+      <Head>
+        <title>{siteMetaConfig.name}</title>
+        <meta name={siteMetaConfig.name} content={siteMetaConfig.name} />
+        <meta
+          name='keywords'
+          content={siteMetaConfig.keywords.join(',')}
+        ></meta>
+        <meta name='description' content={siteMetaConfig.description}></meta>
 
-				<link rel='icon' href='/assets/siteLogo.svg' />
-			</Head>
-			<Component {...pageProps} />
-		</Layout>
-	);
+        <link rel='icon' href='/assets/siteLogo.svg' />
+      </Head>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
