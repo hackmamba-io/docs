@@ -102,6 +102,18 @@
   article p {
     @apply leading-7 [&:not(:first-child)]:mt-6;
   }
+
+  table {
+    @apply table-auto w-full text-sm rounded-sm;
+  }
+
+  table th {
+    @apply bg-slate-100 dark:bg-slate-800 dark:border-slate-600 font-medium p-4 pl-8 pb-3 text-slate-600 dark:text-slate-200 text-left
+  }
+
+  table td {
+    @apply border-b dark:border-slate-600 p-4 pl-8 pb-3 text-slate-600 dark:text-slate-200 text-left
+  }
 }
 
 .styled-scrollbar {

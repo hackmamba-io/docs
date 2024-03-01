@@ -5,12 +5,39 @@ description: Integrate Markdoc into your Next.js app
 
 # {% $markdoc.frontmatter.title %}
 
+{% grid %}
+{% card size="full" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
+{% /card %}
+
+{% card size="full" %}
+Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
+{% /card %}
+
+{% /grid %}
+
+{% table %}
+* Heading 1
+* Heading 2
+* Heading 2
+---
+* Row 1 Cell 1
+* Row 1 Cell 2
+* Row 2 Cell 3
+---
+* Row 2 Cell 1
+* Row 2 cell 2
+* Row 2 cell 3
+{% /table %}
+
 {% card size="sm" %}
 Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
 {% /card %}
+
 {% card size="md" %}
 Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
 {% /card %}
+
 {% card size="full" %}
 Markdoc is open-source—check out its [source](http://github.com/markdoc/markdoc) to see how it works.
 {% /card %}
@@ -23,6 +50,10 @@ React content goes here jnjn
 
 {% tab label="HTML" %}
 HTML content goes herenji
+{% /tab %}
+
+{% tab label="Vue" %}
+Vue.js content goes herenji
 {% /tab %}
 
 {% /tabs %}

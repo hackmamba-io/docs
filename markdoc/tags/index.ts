@@ -3,3 +3,4 @@ export * from './callout.markdoc';
 export * from './code.markdoc';
 export * from './tabs.markdoc';
 export * from './card.markdoc';
+export * from './grid.markdown';
