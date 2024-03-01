@@ -24,7 +24,7 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 								<header className='py-[10px] pl-[10px] text-sm font-semibold mb-[10px]'>
 									{item.title}
 								</header>
-								<ul>
+								<ul className='list-none'>
 									{item.items.map(
 										(navItem, idx) =>
 											navItem.href && (

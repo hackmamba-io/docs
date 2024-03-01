@@ -78,15 +78,19 @@ _Italic_
 
 [Links](/docs/nodes)
 
-![Images](/logo.svg)
+![Images](https://www.dropbox.com/paper/ep/redirect/image?url=https%3A%2F%2Fpaper-attachments.dropboxusercontent.com%2Fs_E1CBF4A45089EFC3D9C461B80BB9F97D882823FECDCA010DD86FEAC6EC26A79C_1706441400678_Screenshot%2B2024-01-28%2Bat%2B12.19.01.png&hmac=6htDoKMr799P2OnJ7fqzZUHIe9WJIDT3JPj63q70kzk%3D&width=1490)
 
 Lists
 
--   Item 1
--   Item 1
--   Item 1
+-  Item 1
+-  Item 1
+-  Item 1
 
-> Quotes
+
+The quickest way to deploy your own version of this boilerplate is by deploying it with
+
+
+> Next, we must add our database URL and API key as an environment variable. To do this, create `.env` file in the root directory and add the copied URL and API key.
 
 `Inline code`
 
@@ -131,12 +135,6 @@ model Task {
 Code fences
 ```
 
----
-
-title: Get started with Markdoc
-description: How to get started with Markdoc
-
----
 
 # Full Next.js example
 

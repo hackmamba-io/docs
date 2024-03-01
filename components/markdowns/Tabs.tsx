@@ -15,7 +15,7 @@ export const Tabs: FC<TabsProps> = ({ labels, children }) => {
 			<div className='mt-6'>
 				<ul
 					role='tablist'
-					className='w-full flex border-b dark:border-b-slate-700'
+					className='w-full flex border-b dark:border-b-slate-700 list-none'
 				>
 					{labels.map((label) => (
 						<li key={label} className='w-16'>
