@@ -7,7 +7,7 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 
 	return (
 		<div className='hidden lg:block h-screen max-h-screen w-72'>
-			<nav className=' pl-10 pt-10 border-r dark:border-r-slate-700  w-[15rem] h-full styled-scrollbar overflow-y-scroll '>
+			<nav className='pl-10 pt-10 border-r dark:border-r-slate-700 w-[15rem] h-full styled-scrollbar overflow-y-scroll fixed'>
 				{items.map((item, i) => {
 					const matchingSecondaryItem = secodaryItems.find(
 						(secItem) =>
@@ -24,7 +24,7 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 								<header className='py-[10px] pl-[10px] text-sm font-semibold mb-[10px]'>
 									{item.title}
 								</header>
-								<ul>
+								<ul className='list-none'>
 									{item.items.map(
 										(navItem, idx) =>
 											navItem.href && (
