@@ -19,7 +19,7 @@ export default function Layout({
 
 	return (
 		<div
-			className={`${notoSans.className} text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900`}
+			className={`${notoSans.className} text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 2xl:max-w-7xl mx-auto`}
 		>
 			<MainNav
 				isNavVisible={true}
@@ -37,7 +37,9 @@ export default function Layout({
 					items={docsConfig.sidebarNav}
 					secodaryItems={docsConfig.secondaryNav}
 				/>
-				<article className='px-10 pt-10 w-full lg:w-11/12 lg:ps-14'>{children}</article>
+				<article className='px-10 pt-10 w-full lg:w-11/12 lg:ps-14'>
+					{children}
+				</article>
 				<TableOfContent toc={toc} />
 			</div>
 		</div>

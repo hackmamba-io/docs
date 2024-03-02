@@ -11,8 +11,8 @@ export default function TableOfContent({ toc }: { toc: any[] }) {
 	}
 
 	return (
-		<div className='hidden md:hidden lg:block h-screen max-h-screen w-72'>
-			<nav className='pt-10 w-[15rem] h-full styled-scrollbar overflow-y-scroll fixed right-0'>
+		<div className='hidden md:hidden lg:block h-screen max-h-screen w-72 relative'>
+			<nav className='pt-10 w-[15rem] h-full styled-scrollbar overflow-y-scroll fixed md:right-0 2xl:right-auto'>
 				<div className='flex'>
 					<Icons.menuSide />
 					<div className='pl-[10px]'>
