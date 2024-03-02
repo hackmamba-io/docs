@@ -8,7 +8,13 @@ import TableOfContent from './table-of-content';
 
 const notoSans = Noto_Sans({ subsets: ['latin'] });
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({
+	children,
+	toc,
+}: {
+	children: React.ReactNode;
+	toc: any[];
+}) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
@@ -31,8 +37,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					items={docsConfig.sidebarNav}
 					secodaryItems={docsConfig.secondaryNav}
 				/>
-				<article className='px-10 pt-10 w-full'>{children}</article>
-				<TableOfContent />
+				<article className='px-10 pt-10 w-full lg:w-11/12 lg:ps-14'>{children}</article>
+				<TableOfContent toc={toc} />
 			</div>
 		</div>
 	);

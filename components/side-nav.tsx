@@ -7,7 +7,7 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 
 	return (
 		<div className='hidden lg:block h-screen max-h-screen w-72'>
-			<nav className=' pl-10 pt-10 border-r dark:border-r-slate-700  w-[15rem] h-full styled-scrollbar overflow-y-scroll '>
+			<nav className='pl-10 pt-10 border-r dark:border-r-slate-700 w-[15rem] h-full styled-scrollbar overflow-y-scroll fixed'>
 				{items.map((item, i) => {
 					const matchingSecondaryItem = secodaryItems.find(
 						(secItem) =>

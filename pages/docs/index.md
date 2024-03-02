@@ -3,7 +3,7 @@ title: Using the Next.js plugin
 description: Integrate Markdoc into your Next.js app
 ---
 
-# {% $markdoc.frontmatter.title %}
+## Hackmamba Documentation Platform
 
 {% grid %}
 {% card size="full" %}
@@ -57,10 +57,6 @@ Vue.js content goes herenji
 {% /tab %}
 
 {% /tabs %}
-
-# Headers
-
-# Full Next.js example
 
 ## Full Next.js example
 

@@ -1,10 +1,18 @@
 import Link from 'next/link';
 import { Icons } from './icons';
 
-export default function TableOfContent() {
+export default function TableOfContent({ toc }: { toc: any[] }) {
+	const items = toc.filter(
+		(item) => item.id && (item.level === 2 || item.level === 3)
+	);
+
+	if (items.length <= 1) {
+		return null;
+	}
+
 	return (
 		<div className='hidden md:hidden lg:block h-screen max-h-screen w-72'>
-			<nav className='pt-10 border-r dark:border-r-slate-700 w-72 h-full styled-scrollbar overflow-y-scroll'>
+			<nav className='pt-10 w-[15rem] h-full styled-scrollbar overflow-y-scroll fixed right-0'>
 				<div className='flex'>
 					<Icons.menuSide />
 					<div className='pl-[10px]'>
@@ -12,18 +20,29 @@ export default function TableOfContent() {
 							On this page
 						</header>
 						<ul className='text-slate-600 dark:text-slate-400'>
-							<li className='text-sm mb-4'>
-								<Link href={'#'}>Developer journey</Link>
-							</li>
-							<li className='text-sm mb-4'>
-								<Link href={'#'}>Documentation Structure</Link>
-							</li>
-							<li className='text-sm mb-4'>
-								<Link href={'#'}>Libraries and SDKs</Link>
-							</li>
-							<li className='text-sm mb-4'>
-								<Link href={'#'}>APIs</Link>
-							</li>
+							{items.map((item) => {
+								const href = `#${item.id}`;
+								const active =
+									typeof window !== 'undefined' &&
+									window.location.hash === href;
+								return (
+									<li
+										key={item.title}
+										className={`text-sm mb-4 ${[
+											active
+												? 'text-[#4F00A3]'
+												: undefined,
+											item.level === 3
+												? 'pl-4'
+												: undefined,
+										]
+											.filter(Boolean)
+											.join(' ')}`}
+									>
+										<Link href={href}>{item.title}</Link>
+									</li>
+								);
+							})}
 						</ul>
 					</div>
 				</div>
