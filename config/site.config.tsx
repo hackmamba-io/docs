@@ -1,6 +1,9 @@
+import { ISiteMetaConfig, ISiteThemeConfig } from '@/types/site.types';
+
 type IconProps = React.HTMLAttributes<SVGElement>;
 
-export const logoConfig = {
+//modify document logo
+export const siteAssetConfig = {
 	logo: (props: IconProps) => (
 		<svg
 			width='160'
@@ -80,7 +83,23 @@ export const logoConfig = {
 	),
 };
 
-export const siteMetaConfig = {
+//modify colors here
+export const siteThemeConfig: ISiteThemeConfig = {
+	light: {
+		textColor: '#4F00A3',
+		borderColor: '#4F00A3',
+		bgColor: '#F4EDFB',
+	},
+	dark: {
+		textColor: '#d5baf0',
+		borderColor: '#d5baf0',
+		bgColor: '#F4EDFB',
+	},
+	multiMode: true,
+};
+
+//modify site metadata like description, keywords, urls, e.t.c here
+export const siteMetaConfig: ISiteMetaConfig = {
 	name: 'boki',
 	url: '',
 	ogImage:
@@ -99,5 +118,3 @@ export const siteMetaConfig = {
 		'Techniccal Writer',
 	],
 };
-
-export type SiteConfig = typeof siteMetaConfig;

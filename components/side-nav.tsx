@@ -1,3 +1,4 @@
+import { siteThemeConfig } from '@/config/site.config';
 import { NavProps, SecondaryNavItem, SidebarNavItem } from '@/types/nav.types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -31,11 +32,30 @@ export default function SideNav({ items, secodaryItems }: NavProps) {
 												<li key={idx}>
 													<Link
 														href={navItem.href}
-														className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-black hover:bg-slate-400/100 dark:hover:bg-slate-400/100 mb-[10px] ${
+														className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-slate-900 hover:dark:text-slate-200/85  mb-[10px] ${
 															pathname ===
 															navItem.href
-																? 'text-[#4F00A3] bg-[#F4EDFB] dark:bg-[#F4EDFB]'
-																: 'text-slate-600'
+																? `text-[${
+																		siteThemeConfig
+																			.light
+																			.textColor
+																  }] bg-[${
+																		siteThemeConfig
+																			.light
+																			.bgColor
+																  }] dark:bg-[${
+																		siteThemeConfig.dark!
+																			.bgColor
+																  }] hover:text-[${
+																		siteThemeConfig
+																			.light
+																			.textColor
+																  }] hover:dark:text-[${
+																		siteThemeConfig
+																			.light
+																			.textColor
+																  }]`
+																: ''
 														}`}
 													>
 														{navItem.title}

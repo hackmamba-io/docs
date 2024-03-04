@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Icons } from './icons';
 import SecondaryNav from './secondary-nav';
 import { IModal, SecondaryNavItem } from '@/types/nav.types';
-import { logoConfig } from '@/config/site.config';
+import { siteAssetConfig, siteThemeConfig } from '@/config/site.config';
 import { useEffect, useState } from 'react';
 
 interface MainNavProps extends IModal {
@@ -18,13 +18,11 @@ export default function MainNav({
 	const isLocalStorageAvailable =
 		typeof window !== 'undefined' && window.localStorage;
 
-	// Check local storage for saved theme or default to 'light'
 	const savedTheme = isLocalStorageAvailable
 		? localStorage.getItem('theme') || 'light'
 		: 'light';
 	const [theme, setTheme] = useState<string>(savedTheme);
 
-	// Update local storage and document element when theme changes
 	const updateTheme = (newTheme: string) => {
 		localStorage.setItem('theme', newTheme);
 		document.documentElement.classList.remove(theme);
@@ -40,7 +38,6 @@ export default function MainNav({
 		updateTheme('dark');
 	};
 
-	// Set the initial theme on component mount
 	useEffect(() => {
 		document.documentElement.classList.add(theme);
 		const buttons = document.querySelectorAll('.theme-button');
@@ -60,7 +57,7 @@ export default function MainNav({
 				<nav className='px-4 py-4 lg:px-10 lg:py-6 w-full flex justify-between'>
 					<div className='w-full'>
 						<Link href='/' className=''>
-							<logoConfig.logo />
+							<siteAssetConfig.logo />
 						</Link>
 					</div>
 					<button className='hidden bg-white dark:bg-slate-900 w-full lg:flex items-center justify-between text-sm leading-6 rounded-md py-1.5 pl-2 pr-3 shadow-sm text-gray-400 dark:text-white/50 border dark:border-slate-700 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary'>
@@ -82,22 +79,24 @@ export default function MainNav({
 						<Icons.menu />
 					</button>
 					<div className='hidden lg:flex w-full justify-end'>
-						<div className='h-9 w-20 px-3 border rounded-full flex justify-between items-center'>
-							<button
-								className={`h-5 w-7 flex justify-center items-center rounded-2xl theme-button`}
-								data-theme='dark'
-								onClick={handleToggleDarkTheme}
-							>
-								<Icons.dark />
-							</button>
-							<button
-								className={`h-5 w-7 flex justify-center items-center rounded-2xl theme-button`}
-								data-theme='light'
-								onClick={handleToggleLightTheme}
-							>
-								<Icons.light />
-							</button>
-						</div>
+						{siteThemeConfig.multiMode && (
+							<div className='h-9 w-20 px-3 border rounded-full flex justify-between items-center'>
+								<button
+									className={`h-5 w-7 flex justify-center items-center rounded-2xl theme-button`}
+									data-theme='dark'
+									onClick={handleToggleDarkTheme}
+								>
+									<Icons.dark />
+								</button>
+								<button
+									className={`h-5 w-7 flex justify-center items-center rounded-2xl theme-button`}
+									data-theme='light'
+									onClick={handleToggleLightTheme}
+								>
+									<Icons.light />
+								</button>
+							</div>
+						)}
 					</div>
 				</nav>
 				{isNavVisible && <SecondaryNav items={items} />}
