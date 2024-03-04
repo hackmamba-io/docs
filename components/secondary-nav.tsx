@@ -1,3 +1,4 @@
+import { siteThemeConfig } from '@/config/site.config';
 import { SecondaryNavItem } from '@/types/nav.types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -18,7 +19,17 @@ export default function SecondaryNav({ items }: SecondaryNavProps) {
 							<span
 								className={`text-sm font-medium pb-3 capitalize ${
 									pathname.includes(item.href)
-										? 'border-[#4F00A3] dark:border-[#d5baf0] text-[#4F00A3] dark:text-[#d5baf0] border-b-4'
+										? `border-[${
+												siteThemeConfig.light
+													.borderColor
+										  }] dark:border-[${
+												siteThemeConfig.dark!
+													.borderColor
+										  }] text-[${
+												siteThemeConfig.light.textColor
+										  }] dark:text-[${
+												siteThemeConfig.dark!.textColor
+										  }] border-b-4`
 										: ''
 								} `}
 							>
