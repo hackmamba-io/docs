@@ -61,13 +61,64 @@ export const docsConfig: DocsConfig = {
 					items: [],
 				},
 				{
-					title: 'Global settings',
-					href: '/docs/global-settings',
+					title: 'Identity',
+					href: '/docs/identity',
 					items: [],
 				},
 				{
-					title: 'Navigation',
-					href: '/docs/navigation',
+					title: 'Permissions',
+					href: '/docs/permissions',
+					items: [],
+				},
+				{
+					title: 'Functions',
+					href: '/docs/functions',
+					items: [],
+				},
+				{
+					title: 'Jobs',
+					href: '/docs/jobs',
+					items: [],
+				},
+				{
+					title: 'Events',
+					href: '/docs/events',
+					items: [],
+				},
+			],
+		},
+		{
+			title: 'Guides',
+			identityKey: 'docs',
+			items: [
+				{
+					title: 'Next.js + Hackmamba',
+					href: '/docs/next-hackmamba',
+					items: [],
+				},
+				{
+					title: 'Nuxt + Hackmamba',
+					href: '/docs/nuxt-hackmamba',
+					items: [],
+				},
+				{
+					title: 'React + Hackmamba',
+					href: '/docs/react-hackmamba',
+					items: [],
+				},
+				{
+					title: 'Vue + Hackmamba',
+					href: '/docs/vue-hackmamba',
+					items: [],
+				},
+				{
+					title: 'solid.js + Hackmamba',
+					href: '/docs/solid-hackmamba',
+					items: [],
+				},
+				{
+					title: 'Astro + Hackmamba',
+					href: '/docs/astro-hackmamba',
 					items: [],
 				},
 			],
