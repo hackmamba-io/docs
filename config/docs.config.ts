@@ -31,17 +31,43 @@ export const docsConfig: DocsConfig = {
 				},
 				{
 					title: 'Development',
-					href: '/docs/dev',
+					href: '/docs/development',
 					items: [],
 				},
 				{
 					title: 'Global settings',
-					href: '/docs/settings',
+					href: '/docs/global-settings',
 					items: [],
 				},
 				{
 					title: 'Navigation',
-					href: '/docs/settings',
+					href: '/docs/navigation',
+					items: [],
+				},
+			],
+		},
+		{
+			title: 'Concepts',
+			identityKey: 'docs',
+			items: [
+				{
+					title: 'Models',
+					href: '/docs/models',
+					items: [],
+				},
+				{
+					title: 'Actions',
+					href: '/docs/actions',
+					items: [],
+				},
+				{
+					title: 'Global settings',
+					href: '/docs/global-settings',
+					items: [],
+				},
+				{
+					title: 'Navigation',
+					href: '/docs/navigation',
 					items: [],
 				},
 			],
