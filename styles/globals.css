@@ -73,4 +73,85 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  code {
+    @apply bg-muted px-1 py-1 rounded;
+  }
+
+  article ul {
+    @apply list-disc mt-6 leading-7 ml-6;
+  }
+
+  article ol {
+    @apply list-decimal mt-6 leading-7 ml-6;
+  }
+
+  article ol li {
+    @apply mt-2;
+  }
+
+  article blockquote {
+    @apply mt-6 border-l-[3px] pl-6 italic w-full;
+  }
+
+  article img {
+    @apply rounded-md;
+  }
+
+  /* heading custom style */
+  h1 {
+    @apply text-4xl font-bold mt-2 mb-6 scroll-m-20;
+  }
+
+  h2 {
+    @apply mt-6 scroll-m-20 pb-2 text-2xl font-semibold tracking-tight first:mt-0;
+  }
+
+  h3 {
+    @apply mt-4 scroll-m-20 pb-2 text-xl font-semibold tracking-tight;
+  }
+
+  h4, h5 {
+    @apply mt-4 scroll-m-20 pb-2 text-lg font-semibold tracking-tight;
+  }
+
+  h6 {
+    @apply mt-4 scroll-m-20 pb-2 text-base font-semibold tracking-tight;
+  }
+
+  article a {
+    @apply font-medium underline underline-offset-4;
+  }
+
+  article p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  table {
+    @apply table-auto w-full text-sm rounded-sm;
+  }
+
+  table th {
+    @apply bg-slate-100 dark:bg-slate-800 dark:border-slate-600 font-medium p-4 pl-8 pb-3 text-slate-600 dark:text-slate-200 text-left;
+  }
+
+  table td {
+    @apply border-b dark:border-slate-600 p-4 pl-8 pb-3 text-slate-600 dark:text-slate-200 text-left;
+  }
+}
+
+.styled-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #eaeaea transparent;
+  scrollbar-gutter: stable;
+}
+
+/* code block */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #796751;
+  background: none !important;
 }
