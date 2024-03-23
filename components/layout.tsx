@@ -5,6 +5,7 @@ import SideNav from './side-nav';
 import { docsConfig } from '@/config/docs.config';
 import MobileNav from './mobile-nav';
 import TableOfContent from './table-of-content';
+import { usePathname } from 'next/navigation';
 
 const notoSans = Noto_Sans({ subsets: ['latin'] });
 
@@ -16,10 +17,11 @@ export default function Layout({
 	toc: any[];
 }) {
 	const [showModal, setShowModal] = useState(false);
+	const pathname = usePathname();
 
 	return (
 		<div
-			className={`${notoSans.className} text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 2xl:max-w-7xl mx-auto`}
+			className={`${notoSans.className} text-slate-600 dark:text-slate-400 2xl:max-w-7xl mx-auto`}
 		>
 			<MainNav
 				isNavVisible={true}
@@ -33,10 +35,12 @@ export default function Layout({
 				showModal={showModal}
 			/>
 			<div className='flex'>
-				<SideNav
-					items={docsConfig.sidebarNav}
-					secodaryItems={docsConfig.secondaryNav}
-				/>
+				{pathname === '/' ? null : (
+					<SideNav
+						items={docsConfig.sidebarNav}
+						secodaryItems={docsConfig.secondaryNav}
+					/>
+				)}
 				<article className='px-10 pt-10 w-full lg:w-11/12 lg:ps-14'>
 					{children}
 				</article>

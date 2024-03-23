@@ -59,7 +59,7 @@ export default function App({ Component, pageProps }: AppProps<MyAppProps>) {
 		: [];
 
 	return (
-		<Layout toc={toc}>
+		<>
 			<Head>
 				<title>{siteMetaConfig.name}</title>
 				<meta
@@ -77,7 +77,9 @@ export default function App({ Component, pageProps }: AppProps<MyAppProps>) {
 
 				<link rel='icon' href='/assets/siteLogo.svg' />
 			</Head>
-			<Component {...pageProps} />
-		</Layout>
+			<Layout toc={toc}>
+				<Component {...pageProps} />
+			</Layout>
+		</>
 	);
 }

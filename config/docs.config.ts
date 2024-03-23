@@ -10,6 +10,11 @@ export const docsConfig: DocsConfig = {
 	secondaryNav: [
 		{
 			title: 'Home',
+			href: '/',
+			identityKey: 'home',
+		},
+		{
+			title: 'Docs',
 			href: '/docs',
 			identityKey: 'docs',
 		},
