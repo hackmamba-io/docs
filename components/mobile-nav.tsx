@@ -17,20 +17,24 @@ export default function MobileNav({
 
 	return (
 		<div
-			className={`bg-black/20 backdrop-blur-sm h-screen max-h-screen absolute z-10 w-full top-0 lg:hidden ${
+			className={`bg-black/20 backdrop-blur-sm h-screen max-h-screen w-full fixed z-50 inset-0 overflow-y-auto  lg:hidden ${
 				showModal ? 'block' : 'hidden'
 			}`}
 		>
-			<div className='h-full w-3/4 px-4 py-4 bg-white'>
+			<div className='min-h-screen w-3/4 px-4 py-4 bg-white'>
 				<div className='flex mb-8'>
 					<nav className='gap-6 w-full px-3'>
 						{secodaryItems.map(
 							(item, i) =>
 								item.href && (
-									<Link href={item.href} key={i}>
+									<Link
+										href={item.href}
+										key={i}
+										onClick={() => setShowModal(false)}
+									>
 										<span
 											className={`text-base font-medium pb-3 capitalize block ${
-												pathname.includes(item.href)
+												pathname === item.href
 													? 'text-[#4F00A3] '
 													: 'text-[#5A5A5C]'
 											} `}
@@ -71,6 +75,9 @@ export default function MobileNav({
 												<li key={idx}>
 													<Link
 														href={navItem.href}
+														onClick={() =>
+															setShowModal(false)
+														}
 														className={`pl-[10px] py-[5px] w-full inline-block text-[13px] font-medium capitalize rounded-sm hover:text-black mb-[10px] ${
 															pathname ===
 															navItem.href
