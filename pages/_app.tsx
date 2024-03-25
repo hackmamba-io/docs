@@ -4,6 +4,18 @@ import '@/styles/globals.css';
 import { MarkdocNextJsPageProps } from '@markdoc/next.js';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import posthog from 'posthog-js';
+import { PostHogProvider } from 'posthog-js/react';
+
+if (typeof window !== 'undefined') {
+	posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY || '', {
+		api_host:
+			process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com',
+		loaded: (posthog) => {
+			if (process.env.NODE_ENV === 'development') posthog.debug();
+		},
+	});
+}
 
 type MyAppProps = MarkdocNextJsPageProps;
 
@@ -59,7 +71,7 @@ export default function App({ Component, pageProps }: AppProps<MyAppProps>) {
 		: [];
 
 	return (
-		<>
+		<PostHogProvider client={posthog}>
 			<Head>
 				<title>{siteMetaConfig.name}</title>
 				<meta
@@ -80,6 +92,6 @@ export default function App({ Component, pageProps }: AppProps<MyAppProps>) {
 			<Layout toc={toc}>
 				<Component {...pageProps} />
 			</Layout>
-		</>
+		</PostHogProvider>
 	);
 }
